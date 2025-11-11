@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data files (actual data, not .dvc files)
+/data/raw/*.csv
+/data/processed/*
+/data/features/*
+!.gitkeep
+
+# But KEEP .dvc tracking files
+!/data/**/*.dvc
+
+# Models (actual model files, not .dvc files)
+*.pkl
+*.h5
+*.pth
+*.onnx
+!*.dvc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Secrets
+*.env
+.env.local
+secrets.yaml
