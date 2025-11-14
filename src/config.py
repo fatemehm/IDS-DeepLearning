@@ -55,4 +55,4 @@ if __name__ == "__main__":
     print(f"Project name: {config.get('project.name')}")
     print(f"Data directory: {config.get('data.raw_dir')}")
     print(f"MLflow URI: {config.get('mlflow.tracking_uri')}")
-    print("✅ Configuration loaded successfully!")
+    print("Configuration loaded successfully!")

@@ -1,5 +1,5 @@
 # Main Configuration File
-# Author: Mahshid Zadeh
+# Author: fatemehm
 
 project:
   name: "IDS-DeepLearning"
@@ -66,7 +66,7 @@ model:
     validation_split: 0.2
 
 mlflow:
-  tracking_uri: "https://dagshub.com/fatemehm/IDS-DeepLearning.mlflow"
+  tracking_uri: "https://dagshub.com/fatemehm/IDS-DeepLearning"
   experiment_name: "iot-ids-experiments"
   artifact_location: "models/mlflow"
 
