@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "iot-ids-mlops"
+name = "IDS-DeepLearning"
 version = "0.1.0"
 description = "ML-based Intrusion Detection System for IoT devices with MLOps"
 authors = ["Fatemeh M <fatemehm@github.com>"]
 readme = "README.md"
 license = "MIT"
-homepage = "https://github.com/fatemehm/iot-ids-mlops"
-repository = "https://github.com/fatemehm/iot-ids-mlops"
+homepage = "https://github.com/fatemehm/IDS-DeepLearning"
+repository = "https://github.com/fatemehm/IDS-DeepLearning"
 keywords = ["mlops", "intrusion-detection", "iot", "security", "machine-learning"]
 
 [tool.poetry.dependencies]

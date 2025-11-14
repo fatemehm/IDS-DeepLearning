@@ -4,48 +4,100 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
-venv/
-*.egg-info/
-dist/
 build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Jupyter
-.ipynb_checkpoints/
-*.ipynb_checkpoints
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv
 
-# Data files (actual data, not .dvc files)
-/data/raw/*.csv
-/data/processed/*
-/data/features/*
-!.gitkeep
+# Environment Variables
+.env
+.env.local
 
-# But KEEP .dvc tracking files
-!/data/**/*.dvc
-
-# Models (actual model files, not .dvc files)
-*.pkl
+# ML Artifacts (tracked by DVC)
 *.h5
-*.pth
+*.pkl
+*.tflite
 *.onnx
-!*.dvc
+*.pb
+models/trained/*.h5
+models/optimized/*.tflite
+!models/trained/.gitkeep
+!models/optimized/.gitkeep
 
-# IDE
+# Data (tracked by DVC)
+data/raw/*.csv
+data/raw/*.json
+data/processed/*
+data/features/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/features/.gitkeep
+
+# Logs
+logs/*.log
+*.log
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# IDEs
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
 
 # OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
-# Terraform
-*.tfstate
-*.tfstate.backup
-.terraform/
+# MLflow
+mlruns/
+mlartifacts/
 
-# Secrets
-*.env
-.env.local
-secrets.yaml
+# DVC
+.dvc/cache
+.dvc/tmp
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Azure
+.azure/
+
+# Docker
+.dockerignore
+
+# Reports
+reports/*.html
+!reports/.gitkeep

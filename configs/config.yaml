@@ -1,0 +1,94 @@
+# Main Configuration File
+# Author: fatemehm
+
+project:
+  name: "IDS-DeepLearning"
+  version: "0.1.0"
+  random_seed: 42
+  author: "fatemehm"
+
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  features_dir: "data/features"
+
+  attack_types:
+    - "normal"
+    - "mqtt_bruteforce"
+    - "scan_aggressive"
+    - "scan_udp"
+    - "sparta_ssh"
+
+  file_mappings:
+    normal: "biflow_normal.csv"
+    mqtt_bruteforce: "biflow_mqtt_bruteforce.csv"
+    scan_aggressive: "biflow_scan_A.csv"
+    scan_udp: "biflow_scan_sU.csv"
+    sparta_ssh: "biflow_sparta.csv"
+
+  preprocessing:
+    test_size: 0.2
+    val_size: 0.2
+    balance_classes: true
+    sample_per_class: 15000
+    scaling_method: "standard"
+    handle_inf: true
+    handle_missing: true
+
+model:
+  architecture: "dnn"
+  input_features: 50
+  num_classes: 5
+
+  dnn:
+    hidden_layers: [256, 128, 64, 32]
+    dropout_rate: 0.4
+    activation: "relu"
+    l2_regularization: 0.001
+    use_batch_norm: true
+
+  lstm:
+    units: [64, 32]
+    dropout_rate: 0.5
+    recurrent_dropout: 0.2
+
+  gru:
+    units: [64, 32]
+    dropout_rate: 0.5
+    recurrent_dropout: 0.2
+
+  training:
+    epochs: 50
+    batch_size: 64
+    learning_rate: 0.001
+    early_stopping_patience: 10
+    reduce_lr_patience: 5
+    validation_split: 0.2
+
+mlflow:
+  tracking_uri: "https://dagshub.com/fatemehm/IDS-DeepLearning"
+  experiment_name: "iot-ids-experiments"
+  artifact_location: "models/mlflow"
+
+dvc:
+  remote_name: "dagshub"
+  remote_url: "https://dagshub.com/fatemehm/IDS-DeepLearning.dvc"
+
+monitoring:
+  enable_drift_detection: true
+  drift_check_interval: 3600  # seconds
+  drift_threshold: 0.05
+  alert_on_drift: true
+
+deployment:
+  model_format: "tflite"
+  api:
+    host: "0.0.0.0"
+    port: 8000
+    enable_auth: false
+    max_batch_size: 32
+
+  azure:
+    resource_group: "rg-iot-ids-mlops"
+    location: "eastus"
+    container_name: "iot-ids-api"
