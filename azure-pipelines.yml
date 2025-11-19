@@ -1,0 +1,7 @@
+trigger:
+- none  # don’t auto-run
+
+pool:
+  vmImage: ubuntu-latest
+
+steps: []
